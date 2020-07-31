@@ -26,21 +26,20 @@ int main()
                 mx[i] = max(mx[i-1], num[i]+num[i-1]);
             }
         }
-
-        for(int i=1;i<=n;i++) {
-            cout << qz[i] << " ";
-        }
-        cout << endl;
-        for(int i=1;i<=n;i++) {
-            cout << mx[i] << " ";
-        }
-        cout << endl;
-        // for(i=0;i<=z;i++) {
-        //     if(k+1-2*i>=1) {
-        //         ans = max(ans,qz[k+1-2*i]+i*mx[min(n,k+2-2*i)]);
-        //     }
+        // for(int i=1;i<=n;i++) {
+        //     cout << qz[i] << " ";
         // }
-        // cout << ans << endl;
+        // cout << endl;
+        // for(int i=1;i<=n;i++) {
+        //     cout << mx[i] << " ";
+        // }
+        // cout << endl;
+        for(i=0;i<=z;i++) {
+            if(k+1-2*i>=1) {
+                ans = max(ans,qz[k+1-2*i]+i*mx[min(n,k+2-2*i)]);
+            }
+        }
+        cout << ans << endl;
     }
 
     return 0;

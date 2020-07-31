@@ -11,21 +11,14 @@ int main()
     //freopen("input.txt","r",stdin);
     //freopen("output.txt","w",stdout);
 
-    int n, m, l;
-    cin >> n >> m;
-    vector<int> a(n);
-    set<int> s;
+    int n, k;
+    cin >> n >> k;
+    pair<int, int> a[50];
     for(int i=0;i<n;i++) {
-        cin >> a[i];
+        cin >> a[i].first >> a[i].second;
+        a[i].first *= -1;
     }
-    for(int i=n-1;i>=0;i--) {
-        s.insert(a[i]);
-        a[i] = s.size();
-    }
-    while(m--) {
-        cin >> l;
-        cout << a[l-1] << endl;
-    }
-
+    sort(a, a+n);
+    cout << count(a, a+n, a[k-1]) << endl; // don't need additional sort since it will compare the pairs
     return 0;
 }

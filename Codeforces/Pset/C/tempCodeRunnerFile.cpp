@@ -10,22 +10,14 @@ int main()
 
     //freopen("input.txt","r",stdin);
     //freopen("output.txt","w",stdout);
-
-    int n, m, l;
-    cin >> n >> m;
+    int n, ans=0;
+    cin >> n;
     vector<int> a(n);
-    set<int> s;
-    for(int i=0;i<n;i++) {
-        cin >> a[i];
-    }
-    for(int i=n-1;i>=0;i--) {
-        s.insert(a[i]);
-        a[i] = s.size();
-    }
-    while(m--) {
-        cin >> l;
-        cout << a[l-1] << endl;
-    }
-
+    for(int i=0;i<a.size();i++) cin >> a[i]; 
+    sort(a.begin(), a.end());
+    for(int i=0;i<a.size();i++) {
+        ans += abs((i+1) - a[i]);
+    } 
+    cout << ans << endl;
     return 0;
 }
