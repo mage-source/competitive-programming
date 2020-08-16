@@ -32,7 +32,7 @@ int main()
             }
             ans = max(ans, s);
         }
-        cout << ans/2 << endl;
+        cout << ans/2 << endl; // accounts for duplicates
     }
 
     return 0;
