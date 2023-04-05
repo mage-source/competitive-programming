@@ -47,7 +47,7 @@ is the one who invented Dynamic Programming.
 Bellman-Ford relies on the property that the graph is acyclic. This lets us assume
 that the shortest path contains at most $n - 1$ edges in a graph of $n$ nodes.
 
-# High-Level Algorithm
+### High-Level Algorithm
 Per its relation to Dynamic Programming, this algorithm follows an iterative approach.
 We take an arbitrary starting node and build a table that contains the shortest distance 
 to get to all other nodes in the graph. All distances are initialized to infinity 
@@ -67,7 +67,7 @@ algorithm will iterate $n - 1$ times over the edges. However, this problem only
 wants us to find paths of length $k$, so we can restrict our algorithm to run 
 $k + 1$ iterations.
 
-# Analysis
+### Analysis
 We are iterating over the $E$ edges $K + 1$ times which takes $O(E \cdot K)$.
 Each iteration we also copy and update two arrays of size $N$ for each of the cities.
 This takes $O(N \cdot K)$. Thus, our overall runtime is $O((N + E) \cdot K)$.
