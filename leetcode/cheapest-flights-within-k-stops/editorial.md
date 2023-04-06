@@ -49,7 +49,7 @@ that the shortest path contains at most $n - 1$ edges in a graph of $n$ nodes.
 
 ### High-Level Algorithm
 Per its relation to Dynamic Programming, this algorithm follows an iterative approach.
-We take an arbitrary starting node and build a table that contains the shortest distance 
+We take our given starting node and build a table that contains the shortest distance 
 to get to all other nodes in the graph. All distances are initialized to infinity 
 and **relaxed** or reduced as we run through the algorithm.
 
@@ -73,3 +73,26 @@ Each iteration we also copy and update two arrays of size $N$ for each of the ci
 This takes $O(N \cdot K)$. Thus, our overall runtime is $O((N + E) \cdot K)$.
 
 For space, we need two arrays of size $N$ which gives us $O(N)$ space complexity.
+
+### Dijkstra
+Dijkstra is another famous algorithm for finding the shortest path in a graph.
+This algorithm follows a greedy approach in which we always take the minimum cost
+path available to us.
+
+### High-Level Algorithm
+We use a priority queue to greedily choose which node to investigate next starting
+at our `src` node. We also need to bound our levels of iteration by $k + 1$, since
+we want to find paths of length $k$ (see Bellman-Ford discussion). At each level 
+of iteration we append a tuple of `(cost, stops, node)` to the priority queue. 
+We also maintain a hash table where we map each node to the minimum path length 
+it took to get to that node and continually update this value as necessary throughout
+the algorithm. At some point we will reach the `dst`, otherwise return `-1`.
+
+### Analysis
+In the worst case, we will have to process the same edge $K$ times which gives us
+$O(E \cdot K)$. Additionally, we have to account for the priority queue operations
+of adding and popping each edge which then gives us $O(E \cdot K \cdot log(E \cdot K))$.
+So, our overall runtime is $O(E \cdot K \cdot log(E \cdot K))$.
+
+We need $O(N)$ space for our hash table and a priority queue that stores at most
+$O(E \cdot K)$ elements. This gives us an overall space complexity of $O(N + E \cdot K)$.
