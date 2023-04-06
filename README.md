@@ -8,4 +8,4 @@ outlets in challenging problems likely stems from this niche hobby I discovered
 in college. As such, I am glad I finally have sufficient spare time to engage in 
 this activity more intensely and consistently.
 
-Please look forward to more solutions as I continue working hard :D
+Please look forward to more solutions as I continue working hard.
