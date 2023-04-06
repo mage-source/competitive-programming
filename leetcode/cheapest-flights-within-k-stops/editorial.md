@@ -74,7 +74,7 @@ This takes $O(N \cdot K)$. Thus, our overall runtime is $O((N + E) \cdot K)$.
 
 For space, we need two arrays of size $N$ which gives us $O(N)$ space complexity.
 
-### Dijkstra
+## Dijkstra
 Dijkstra is another famous algorithm for finding the shortest path in a graph.
 This algorithm follows a greedy approach in which we always take the minimum cost
 path available to us.
