@@ -12,7 +12,7 @@ The main hurdle with this problem is how much code and edge cases are involved i
 its implementation. In particular, we must figure out how to handle which count 
 is considered the LFU count and properly update it. 
 
-To accomplish this, we maintain two hash maps: frequency table and cache. Cache
+To accomplish this, we maintain two hash maps: `frequency table` and `cache`. Cache
 is simply our LFU cache structure that we will interface with. The frequency table
 maps count -> nodes. This is where the DLL for the LRU eviction policy is utilized.
 Since all nodes of `count` will be tied, we maintain the tail of the this DLL as 
