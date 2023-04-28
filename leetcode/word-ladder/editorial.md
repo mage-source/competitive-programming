@@ -42,7 +42,7 @@ length $M$ and not all the forms.
 
 Overall, this gives us a space complexity of $O(N \cdot M^2)$.
 
-Note: 
+**Optimizations:** 
 
 To further optimize time, we could do bidirectional BFS. 
 
