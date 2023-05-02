@@ -21,8 +21,10 @@ cells multiple times.
 anywhere within the cell, we can end the iteration early.
 
 Let us examine observation $2$ in more detail since it is how we derive the recurrence
-relation for this problem: `dp[r][c] = min(left, top, top-left diag) + 1`. The
-intution behind this recurrence definition follows from the weakest link observation.
+relation for this problem: 
+`dp[r][c] = min(left, top, top-left diag) + 1`. 
+
+The intution behind this recurrence definition follows from the weakest link observation.
 The existence of `0` in any of the surrounding cells will disrupt our ability to
 make a valid square from this cell. Extending this idea, we are only able to make
 as big of a square as the shortest surrounding valid side length allows.
