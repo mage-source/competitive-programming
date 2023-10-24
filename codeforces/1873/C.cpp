@@ -17,14 +17,14 @@ vector<vector<int>> target = {
 };
 
 int solve() {
-  vector<vector<char>> grid(10, vector<char>(10, '.'));
   int points = 0;
 
   for (int i = 0; i < 10; i++) {
     for (int j = 0; j < 10; j++) {
-      cin >> grid[i][j];
+      char c;
+      cin >> c;
 
-      if (grid[i][j] == 'X') points += target[i][j];
+      if (c == 'X') points += target[i][j];
     }
   }
 
