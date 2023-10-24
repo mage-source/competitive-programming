@@ -39,25 +39,14 @@ int main() {
     }
   }
 
-  vector<pair<int, int>> anti_intervals;
-
-  for (int i = 0; i < merged_intervals.size() - 1; i++) {
-    pair<int, int> new_interval;
-    new_interval.first = merged_intervals[i].second;
-    new_interval.second = merged_intervals[i + 1].first;
-    anti_intervals.push_back(new_interval);
-  }
-
-  int max_milk_interval = 0;
-
-  for (auto it : merged_intervals) {
-    max_milk_interval = max(max_milk_interval, it.second - it.first);
-  }
-
+  int max_milk_interval = merged_intervals[0].second - merged_intervals[0].first;
   int max_nomilk_interval = 0;
-
-  for (auto it : anti_intervals) {
-    max_nomilk_interval = max(max_nomilk_interval, it.second - it.first);
+  auto prev_interval = merged_intervals[0];
+  
+  for (int i = 1; i < merged_intervals.size(); i++) {
+    max_milk_interval = max(max_milk_interval, merged_intervals[i].second - merged_intervals[i].first);
+    max_nomilk_interval = max(max_nomilk_interval, merged_intervals[i].first - prev_interval.second);
+    prev_interval = merged_intervals[i];
   }
 
   cout << max_milk_interval << " " << max_nomilk_interval << endl;
