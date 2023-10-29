@@ -29,24 +29,24 @@ int main() {
 
   int n, s;
   cin >> n >> s;
+
   s++;
   
   while (n > 0) {
-    bool flag = false;
+    int count_valid = 0;
+
     for (int base = 2; base <= 10; base++) {
       string converted = convert(s, base);
       string reversed(converted.rbegin(), converted.rend());
 
-      if (converted == reversed) {
-        if (flag) {
-          cout << s << endl;
-          n--;
-          break;
-        } else {
-          flag = true;
-        }
-      }
+      if (converted == reversed) count_valid++;
     }
+    
+    if (count_valid > 1) {
+      cout << s << endl;
+      n--;
+    }
+
     s++;
   }
 
