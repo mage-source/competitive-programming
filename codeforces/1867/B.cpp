@@ -14,26 +14,21 @@ void solve() {
   int max_1 = 0;
   string t(n + 1, '0');
 
-  for (int i = 0; i <= n / 2 - 1; i++) {
-    if (s[i] == s[n - i - 1]) {
-      max_2++;
-    } else {
-      ans++;
+  for (int i = 0; i <= n/2 - 1; i++) {
+    if (s[i] == s[n - i - 1]) max_2++;
+    else ans++;
+  }
+
+  if (n % 2 == 1) max_1++;
+
+  for (int i = 0; i <= max_2; i++) {
+    for (int j = 0; j <= max_1; j++) {
+      t[ans + (2 * i) + j] = '1';
     }
   }
 
-  if (n % 2 == 1) {
-    max_1++;
-  }
+  cout << t << "\n";
 
-  for (int j = 0; j <= max_2; j++) {
-    for (int k = 0; k <= max_1; k++) {
-      t[ans + j*2 + k] = '1';
-    }
-  }
-
-  cout << t << endl;
-  
   return;
 }
 
