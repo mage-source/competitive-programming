@@ -22,16 +22,12 @@ int main() {
 
   sort(sellers.begin(), sellers.end());
 
-  int i = 0;
   int min_cost = 0;
-
-  while (n > 0 && i < sellers.size()) {
-    while (sellers[i].second > 0 && n > 0) {
-      n--;
-      sellers[i].second--;
-      min_cost += sellers[i].first;
-    }
-    i++;
+  
+  for (int i = 0; i < sellers.size() && n > 0; i++) {
+    int a = min(sellers[i].second, n); 
+    min_cost += a * sellers[i].first;
+    n -= a;
   }
 
   cout << min_cost << endl;
