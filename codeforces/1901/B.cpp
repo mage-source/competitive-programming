@@ -4,20 +4,20 @@
 using namespace std;
 
 void solve() {
-  int n, x;
-  cin >> n >> x;
+  int n;
+  cin >> n;
 
   vector<int> a(n);
-
   for (int i = 0; i < n; i++) {
     cin >> a[i];
   }
 
-  int res = max(a[0], 2 * (x - a.back()));
+  long long res = a[0] - 1;
 
   for (int i = 0; i < n - 1; i++) {
-    int dist = a[i + 1] - a[i];
-    res = max(res, dist);
+    if (a[i] < a[i + 1]) {
+      res += a[i + 1] - a[i];
+    }
   }
 
   cout << res << endl;
